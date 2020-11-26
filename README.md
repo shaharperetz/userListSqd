@@ -1,3 +1,6 @@
+hoping for the best! GL !
+
+
 # front
 
 ## Project setup
