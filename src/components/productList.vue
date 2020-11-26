@@ -1,6 +1,6 @@
 <template>
   <section v-if="products">
-    <product-preview
+    <ProductPreview
       v-for="(product, idx) in products"
       :key="idx"
       :product="product"
@@ -9,13 +9,13 @@
 </template>
 
 <script>
-import productPreview from "./productPreview.vue";
+import ProductPreview from "./ProductPreview";
 export default {
   name: "product-list",
   props: ["products"],
 
   components: {
-    productPreview,
+    ProductPreview,
   },
 };
 </script>

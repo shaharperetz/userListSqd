@@ -15,7 +15,11 @@ export default {
                     isPressed: false,
                     isDissable: false
                 },
-                comments: [],
+                comments: [
+                    { txt: 'Great item', author: 'Shahar' },
+                    { txt: 'loved it!!', author: 'Hila' },
+                    { txt: 'the best purchase ever!', author: 'Meital' },
+                ],
             },
             {
                 name: 'Brown bear cushion',
@@ -30,7 +34,11 @@ export default {
                     isPressed: true,
                     isDissable: false
                 },
-                comments: [],
+                comments: [
+                    { txt: 'Great item', author: 'Shahar' },
+                    { txt: 'loved it!!', author: 'Hila' },
+                    { txt: 'the best purchase ever!', author: 'Meital' },
+                ],
             },
             {
                 name: 'Hummingbird cushion',
@@ -45,7 +53,11 @@ export default {
                     isPressed: false,
                     isDissable: true
                 },
-                comments: [],
+                comments: [
+                    { txt: 'Great item', author: 'Shahar' },
+                    { txt: 'loved it!!', author: 'Hila' },
+                    { txt: 'the best purchase ever!', author: 'Meital' },
+                ],
             },
         ]
 
@@ -57,7 +69,6 @@ export default {
     },
     mutations: {
         editProduct(state, { newProduct }) {
-            console.log("🚀 ~ file: ProductsStore.js ~ line 64 ~ editProduct ~ newProduct", newProduct)
             let idx = state.products.findIndex(product => product._id === newProduct._id)
             state.products.splice(idx, 1, newProduct)
 

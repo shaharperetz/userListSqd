@@ -1,11 +1,11 @@
 <template>
   <section>
-    <productList :products="productsToShow" />
+    <ProductList :products="productsToShow" />
   </section>
 </template>
 
 <script>
-import productList from "../components/productList.vue";
+import ProductList from "../components/ProductList";
 export default {
   name: "home",
 
@@ -19,6 +19,6 @@ export default {
   },
 
   methods: {},
-  components: { productList },
+  components: { ProductList },
 };
 </script>

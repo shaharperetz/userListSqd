@@ -22,11 +22,12 @@
       </div>
       <div class="comments-likes">
         <img
+          @click="onCommentClick"
           class="mini-icon"
           :src="require('@/assets/icons/comment.png')"
           alt=""
         />
-        <div class="heart-container" @click.stop="onLikeClicked(product)">
+        <div class="heart-container" @click="onLikeClicked(product)">
           <img
             v-if="heartStatus"
             class="mini-icon heart-mini-icon"
@@ -37,16 +38,23 @@
         </div>
       </div>
     </div>
+    <CommentList
+      v-if="commentShown"
+      :comments="product.comments"
+      @submitComment="submitComment"
+    />
   </section>
 </template>
 
 <script>
+import CommentList from "./CommentList";
 export default {
   props: {
     product: Object,
   },
   data() {
     return {
+      commentShown: false,
       priceSign: "€",
     };
   },
@@ -54,6 +62,12 @@ export default {
   methods: {
     onLikeClicked(product) {
       this.$store.dispatch({ type: "likeClicked", product });
+    },
+    onCommentClick() {
+      this.commentShown = !this.commentShown;
+    },
+    submitComment(comment) {
+      console.log(comment);
     },
   },
 
@@ -65,6 +79,9 @@ export default {
       }
       return heartSign;
     },
+  },
+  components: {
+    CommentList,
   },
 };
 </script>
