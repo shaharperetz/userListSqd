@@ -1,13 +1,13 @@
 <template>
   <section class="product-prev">
-    <div class="product-headline">
+    <router-link :to="`/profile/${product.author.id}`" class="product-headline">
       <img
         class="avatar-img"
         :src="require(`@/assets/avatars/avatar-${product.author.id}.jpg`)"
         alt=""
       />
       <p class="avatar-name">{{ product.author.name }}</p>
-    </div>
+    </router-link>
     <div class="img-desc">
       <img
         class="product-img"
@@ -67,7 +67,11 @@ export default {
       this.commentShown = !this.commentShown;
     },
     submitComment(comment) {
-      console.log(comment);
+      let productComment = {
+        comment,
+        product: this.product,
+      };
+      this.$store.dispatch({ type: "addComment", productComment });
     },
   },
 
@@ -93,13 +97,20 @@ export default {
   /* height: 200px; */
   margin-bottom: 20px;
   width: 250px;
+  margin: 50px;
 }
 
 .product-headline {
-  justify-content: center;
   align-items: center;
   display: flex;
+  padding: 10px;
   flex-direction: row;
+  color: black;
+  text-decoration: none;
+}
+
+.product-headline img {
+  margin-right: 20px;
 }
 
 .avatar-img {
@@ -110,6 +121,7 @@ export default {
 
 .product-img {
   width: 100%;
+  border-radius: 10px;
 }
 
 .img-desc {

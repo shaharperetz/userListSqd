@@ -22,3 +22,5 @@ export default {
   components: { ProductList },
 };
 </script>
+<style lang="css">
+</style>

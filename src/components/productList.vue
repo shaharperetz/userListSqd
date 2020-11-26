@@ -1,5 +1,5 @@
 <template>
-  <section v-if="products">
+  <section v-if="products" class="product-list">
     <ProductPreview
       v-for="(product, idx) in products"
       :key="idx"
@@ -21,4 +21,8 @@ export default {
 </script>
 
 <style>
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>

@@ -20,6 +20,9 @@
 <script>
 import CommentPreview from "./CommentPreview";
 export default {
+  props: {
+    comments: Array,
+  },
   data() {
     return {
       comment: {
@@ -27,9 +30,6 @@ export default {
         txt: "",
       },
     };
-  },
-  props: {
-    comments: Array,
   },
   methods: {
     submitComment() {
@@ -50,6 +50,7 @@ export default {
 .comments-list {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .form-comment {
   display: flex;

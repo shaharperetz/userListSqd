@@ -59,6 +59,63 @@ export default {
                     { txt: 'the best purchase ever!', author: 'Meital' },
                 ],
             },
+            {
+                name: 'Mountain fox notebook',
+                _id: 4,
+                author: {
+                    name: 'Arik',
+                    id: 'arik'
+                },
+                price: 12.90,
+                likes: {
+                    counter: 1,
+                    isPressed: false,
+                    isDissable: false
+                },
+                comments: [
+                    { txt: 'Great item', author: 'Shahar' },
+                    { txt: 'loved it!!', author: 'Hila' },
+                    { txt: 'the best purchase ever!', author: 'Meital' },
+                ],
+            },
+            {
+                name: 'Brown bear cushion',
+                _id: 5,
+                author: {
+                    name: 'Arik',
+                    id: 'arik'
+                },
+                price: 18.90,
+                likes: {
+                    counter: 3,
+                    isPressed: true,
+                    isDissable: false
+                },
+                comments: [
+                    { txt: 'Great item', author: 'Shahar' },
+                    { txt: 'loved it!!', author: 'Hila' },
+                    { txt: 'the best purchase ever!', author: 'Meital' },
+                ],
+            },
+            {
+                name: 'Hummingbird cushion',
+                _id: 6,
+                author: {
+                    name: 'Arik',
+                    id: 'arik'
+                },
+                price: 18.90,
+                likes: {
+                    counter: 0,
+                    isPressed: false,
+                    isDissable: true
+                },
+                comments: [
+                    { txt: 'Great item', author: 'Shahar' },
+                    { txt: 'loved it!!', author: 'Hila' },
+                    { txt: 'the best purchase ever!', author: 'Meital' },
+                ],
+            },
         ]
 
     },
@@ -81,6 +138,10 @@ export default {
             commit({ type: 'editProduct', newProduct })
 
 
+        },
+        async addComment({ commit }, { productComment }) {
+            let newProduct = await productService.addComment(productComment)
+            commit({ type: 'editProduct', newProduct })
         }
 
     }

@@ -6,37 +6,21 @@ export default {
             {
                 name: 'Gabriel',
                 id: 'gabriel',
-                products: [
-                    {
-                        name: 'Mountin fox notebook',
-                        price: 12.90,
-                        likes: 0,
-                        comments: [],
-
-                    },
-                    {
-                        name: 'Brown bear cushion',
-                        price: 18.90,
-                        likes: 0,
-                        comments: [],
-
-                    }
-                ]
+                products: []
 
 
             },
             {
                 name: 'Elysa',
                 id: 'elysa',
-                products: [
-                    {
-                        name: 'Hummingbird cushion',
-                        price: 18.90,
-                        likes: 0,
-                        comments: [],
+                products: []
 
-                    }
-                ]
+
+            },
+            {
+                name: 'Arik',
+                id: 'arik',
+                products: []
 
 
             },
