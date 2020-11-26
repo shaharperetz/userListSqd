@@ -34,7 +34,7 @@
             :src="require(`@/assets/icons/${heartStatus}.png`)"
             alt=""
           />
-          <p class="heart-counter">{{ product.likes.counter }}</p>
+          <p class="heart-counter">{{ likesCounter }}</p>
         </div>
       </div>
     </div>
@@ -82,6 +82,16 @@ export default {
         heartSign = "blackHeart";
       }
       return heartSign;
+    },
+    likesCounter() {
+      let likeCount = this.product.likes.counter;
+      console.log(
+        "🚀 ~ file: productPreview.vue ~ line 88 ~ likesCounter ~ likeCount",
+        likeCount
+      );
+      if (likeCount > 1000) {
+        return likeCount.toString()[0] + "K";
+      } else return likeCount;
     },
   },
   components: {
