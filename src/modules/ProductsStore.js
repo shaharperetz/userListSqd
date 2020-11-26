@@ -4,7 +4,7 @@ export default {
         products: [
             {
                 name: 'Mountain fox notebook',
-                _id: 01,
+                _id: 1,
                 author: {
                     name: 'Gabriel',
                     id: 'gabriel'
@@ -19,7 +19,7 @@ export default {
             },
             {
                 name: 'Brown bear cushion',
-                _id: 02,
+                _id: 2,
                 author: {
                     name: 'Gabriel',
                     id: 'gabriel'
@@ -34,7 +34,7 @@ export default {
             },
             {
                 name: 'Hummingbird cushion',
-                _id: 03,
+                _id: 3,
                 author: {
                     name: 'Elysa',
                     id: 'elysa'
