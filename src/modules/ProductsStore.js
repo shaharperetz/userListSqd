@@ -1,4 +1,4 @@
-
+import productService from '../services/productService.js'
 export default {
     state: {
         products: [
@@ -11,8 +11,8 @@ export default {
                 },
                 price: 12.90,
                 likes: {
-                    counter: 0,
-                    isPressed: true,
+                    counter: 1,
+                    isPressed: false,
                     isDissable: false
                 },
                 comments: [],
@@ -26,8 +26,8 @@ export default {
                 },
                 price: 18.90,
                 likes: {
-                    counter: 0,
-                    isPressed: false,
+                    counter: 3,
+                    isPressed: true,
                     isDissable: false
                 },
                 comments: [],
@@ -56,9 +56,21 @@ export default {
         }
     },
     mutations: {
+        editProduct(state, { newProduct }) {
+            console.log("🚀 ~ file: ProductsStore.js ~ line 64 ~ editProduct ~ newProduct", newProduct)
+            let idx = state.products.findIndex(product => product._id === newProduct._id)
+            state.products.splice(idx, 1, newProduct)
+
+        }
 
     },
     actions: {
+        async likeClicked({ commit }, { product }) {
+            let newProduct = await productService.likeClicked(product)
+            commit({ type: 'editProduct', newProduct })
+
+
+        }
 
     }
 }

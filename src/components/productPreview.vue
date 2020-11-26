@@ -26,14 +26,15 @@
           :src="require('@/assets/icons/comment.png')"
           alt=""
         />
-        <img
-          v-if="heartSign"
-          class="mini-icon"
-          :src="require(`@/assets/icons/${heartSign}.png`)"
-          alt=""
-          ref="heart"
-          @click.stop="onLikeClicked(product.likes)"
-        />
+        <div class="heart-container" @click.stop="onLikeClicked(product)">
+          <img
+            v-if="heartStatus"
+            class="mini-icon heart-mini-icon"
+            :src="require(`@/assets/icons/${heartStatus}.png`)"
+            alt=""
+          />
+          <p class="heart-counter">{{ product.likes.counter }}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -47,23 +48,22 @@ export default {
   data() {
     return {
       priceSign: "€",
-      heartSign: null,
     };
   },
-  mounted() {
-    this.checkHeartStatus();
-  },
+
   methods: {
-    checkHeartStatus() {
-      console.log(this.product.likes.isPressed);
-      this.heartSign = this.product.likes.isPressed ? "redHeart" : "heart";
-      if (this.product.likes.isDissable) {
-        this.heartSign = "blackHeart";
-        console.log(this.$refs.heart);
-      }
+    onLikeClicked(product) {
+      this.$store.dispatch({ type: "likeClicked", product });
     },
-    onLikeClicked(likes) {
-      console.log(likes);
+  },
+
+  computed: {
+    heartStatus() {
+      let heartSign = this.product.likes.isPressed ? "redHeart" : "heart";
+      if (this.product.likes.isDissable) {
+        heartSign = "blackHeart";
+      }
+      return heartSign;
     },
   },
 };
@@ -117,7 +117,24 @@ export default {
 
 .mini-icon {
   margin-left: 5px;
-  width: 20px;
+  width: 25px;
   cursor: pointer;
+}
+
+.comments-likes {
+  display: flex;
+  align-items: center;
+}
+
+.heart-container {
+  cursor: pointer;
+  position: relative;
+}
+
+.heart-counter {
+  position: absolute;
+  top: -10px;
+  right: 9px;
+  font-size: 14px;
 }
 </style>
