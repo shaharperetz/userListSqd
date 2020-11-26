@@ -1,7 +1,4 @@
-import UserService from '../services/UserService.js'
 
-var localLoggedinUser = null;
-if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
     state: {
@@ -43,7 +40,11 @@ export default {
 
 
             },
-        ]
+        ],
+
+
+
+
 
 
 

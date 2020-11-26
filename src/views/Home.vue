@@ -1,11 +1,11 @@
 <template>
   <section>
-    <userList :users="usersToShow" />
+    <productList :products="productsToShow" />
   </section>
 </template>
 
 <script>
-import userList from "../components/userList.vue";
+import productList from "../components/productList.vue";
 export default {
   name: "home",
 
@@ -13,12 +13,12 @@ export default {
     return {};
   },
   computed: {
-    usersToShow() {
-      return this.$store.getters.users;
+    productsToShow() {
+      return this.$store.getters.products;
     },
   },
 
   methods: {},
-  components: { userList },
+  components: { productList },
 };
 </script>
